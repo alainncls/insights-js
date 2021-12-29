@@ -197,7 +197,8 @@ interface TrackPageData {
 }
 
 function addOnPageClose(handler: () => any) {
-  window.addEventListener("unload", handler)
+  const terminationEvent = "onpagehide" in self ? "pagehide" : "unload";
+  window.addEventListener(terminationEvent, handler)
 }
 
 /**
