@@ -91,7 +91,7 @@ ___
 
 ▸ **track**(`event`: [TrackEventPayload](../interfaces/_app_.trackeventpayload.md)): undefined \| Promise<void\>
 
-Track an occurence of the given event.
+Track an occurrence of the given event.
 
 #### Parameters:
 

@@ -1,6 +1,6 @@
-[insights-js](README.md) › [Globals](globals.md)
+**[insights-js](README.md)**
 
-# insights-js
+> [Globals](globals.md)
 
 # Insights-js
 
@@ -90,7 +90,7 @@ Here is the result in the dashboard:
 
 ### Custom parameters
 
-`insights-js` ships with multiple built-in parameters, to track values that are often useful, use as follow:
+`insights-js` ships with multiple built-in parameters, to track values that are often useful, use as follows:
 
 ```js
 import { parameters } from "insights-js"
@@ -109,9 +109,9 @@ track({
 Result in the dashboard:
 ![Event read post](./images/read-post.png)
 
-See the full list [in the parameters'API documentation](#parameters).
+See the full list [in the parameters' API documentation](#parameters).
 
-### Untracking events
+### Un-tracking events
 
 Certain events last through time and may be undone or cancelled after they have been logged.
 For example, when tracking subscription to services or people.
@@ -206,7 +206,7 @@ app2.track({
 
 ## API
 
-See the detailed API documentation [in the docs folder](./docs/README.md).
+See the detailed API documentation [in the `docs` folder](./docs/README.md).
 
 ### `init(projectId, options)`
 
@@ -244,7 +244,7 @@ The event to track
 
 `event.id: string`
 _Mandatory_
-The id of the event to track, should be a human readable id in `kebab-case`.
+The id of the event to track, should be a human-readable id in `kebab-case`.
 
 `event.parameters: { [key: string]: string }`
 _Optional_
@@ -252,7 +252,7 @@ _Default value:_ `{}`
 A map of `(key: string) -> (value: string)` pairs.
 Getinsights keeps track of the number of events logged for each value.
 You may also use the `parameters` variable to generate built-in values.
-See the full list [in the parameters'API documentation](#parameters).
+See the full list [in the parameters' API documentation](#parameters).
 
 `event.unique: boolean`
 _Optional_
@@ -333,9 +333,9 @@ _Optional_
 _Default value:_ `{}`
 The options to configure the behaviour of the tracking, namely:
 
-- wether or not to track the hash portion of the URL (defaults to `false`)
-- wether or not to track the search portion of the URL (defaults to `false`)
-- wether or not to track unique page views as well (defaults to `true`)
+- whether to track the hash portion of the URL (defaults to `false`)
+- whether to track the search portion of the URL (defaults to `false`)
+- whether to track unique page views as well (defaults to `true`)
 
 `options.hash: boolean`
 _Optional_

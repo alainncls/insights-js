@@ -139,7 +139,7 @@ export interface TrackEventPayload {
    *   }
    * })
    *
-   * // A user unsbubscribed.
+   * // A user unsubscribed.
    * track({
    *   id: "user-subscribed",
    *   parameters: {
@@ -196,32 +196,7 @@ interface TrackPageData {
   path: string
 }
 
-// See https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
 function addOnPageClose(handler: () => any) {
-  // let hidden: string | undefined = undefined
-  // let visibilityChange: string | undefined = undefined
-  // const doc = document as any
-  // if (typeof doc.hidden !== "undefined") {
-  //   // Opera 12.10 and Firefox 18 and later support
-  //   hidden = "hidden"
-  //   visibilityChange = "visibilitychange"
-  // } else if (typeof doc.msHidden !== "undefined") {
-  //   hidden = "msHidden"
-  //   visibilityChange = "msvisibilitychange"
-  // } else if (typeof doc.webkitHidden !== "undefined") {
-  //   hidden = "webkitHidden"
-  //   visibilityChange = "webkitvisibilitychange"
-  // }
-
-  // if (hidden) {
-  //   doc.addEventListener(visibilityChange, () => {
-  //     if (hidden && doc[hidden]) handler()
-  //   })
-  // } else if ("onpagehide" in window) {
-  //   // See https://stackoverflow.com/questions/6906146/how-to-detect-browser-support-for-pageshow-and-pagehide
-  //   window.addEventListener("pagehide", handler)
-  // } else {
-  // }
   window.addEventListener("unload", handler)
 }
 
@@ -240,7 +215,7 @@ export class App {
   }
 
   /**
-   * Track an occurence of the given event.
+   * Track an occurrence of the given event.
    *
    * @param event {TrackEventPayload} The event to track.
    */
@@ -383,7 +358,7 @@ export class App {
       // user closed the window
       params.bounces = isOnFirstPage ? "Yes" : "No"
     } else if (nextUrl[0] !== "/" && nextUrl.substr(0, host.length) !== getHost()) {
-      // link outside of the app
+      // link outside the app
       params.transitions = parameters.transition(path, nextUrl)
     }
 

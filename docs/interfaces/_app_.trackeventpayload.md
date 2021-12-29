@@ -109,7 +109,7 @@ track({
   }
 })
 
-// A user unsbubscribed.
+// A user unsubscribed.
 track({
   id: "user-subscribed",
   parameters: {

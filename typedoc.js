@@ -7,5 +7,4 @@ module.exports = {
   hideSources: true,
   entryPoint: "src/index.ts",
   hideGenerator: true
-  // mode: "file"
 }
