@@ -8,6 +8,8 @@ This repository contains the official javascript wrapper for https://getinsights
 
 This library allows you to track events in the browser and see them aggregated in our admin interface.
 
+**New feature**: visits from "bad" robots/user agents are not tracked anymore, according to the list available [here](https://github.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/blob/master/_generator_lists/bad-user-agents.list).
+
 ## Getting Started
 
 ### With npm or yarn:

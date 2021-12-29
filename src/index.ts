@@ -1,6 +1,6 @@
 import * as parameters from "./parameters"
 import { App, AppOptions, TrackEventPayload, TrackPagesOptions, TrackPagesResult } from "./App"
-import { isInBrowser } from "./utils"
+import { isVisitorValid } from "./utils"
 
 export { parameters }
 export { App, AppOptions, TrackEventPayload, TrackPagesOptions, TrackPagesResult }
@@ -32,7 +32,7 @@ export let DEFAULT_APP: App | null = null
  * @returns The default app
  */
 export function init(projectId: string, options?: AppOptions): App {
-  if (!isInBrowser() || DEFAULT_APP) {
+  if (!isVisitorValid() || DEFAULT_APP) {
     return DEFAULT_APP as any
   }
   DEFAULT_APP = new App(projectId, options)
@@ -45,7 +45,7 @@ export function init(projectId: string, options?: AppOptions): App {
  * @param event The event to track
  */
 export function track(event: TrackEventPayload): void {
-  if (!DEFAULT_APP || !isInBrowser()) return
+  if (!DEFAULT_APP || !isVisitorValid()) return
 
   DEFAULT_APP.track(event)
 }
@@ -61,7 +61,7 @@ export function track(event: TrackEventPayload): void {
  * @returns An object of the form `{ stop(): void }` to stop the tracking
  */
 export function trackPages(options?: TrackPagesOptions): TrackPagesResult {
-  if (!DEFAULT_APP || !isInBrowser()) return { stop() {} }
+  if (!DEFAULT_APP || !isVisitorValid()) return { stop() {} }
 
   return DEFAULT_APP.trackPages(options)
 }

@@ -1,5 +1,5 @@
 import * as parameters from "./parameters"
-import { getHost, isInBrowser, isReferrerSameHost } from "./utils"
+import { getHost, isReferrerSameHost, isVisitorValid } from "./utils"
 
 /**
  * Additional options used when tracking events
@@ -197,7 +197,7 @@ interface TrackPageData {
 }
 
 function addOnPageClose(handler: () => any) {
-  const terminationEvent = "onpagehide" in self ? "pagehide" : "unload";
+  const terminationEvent = "onpagehide" in self ? "pagehide" : "unload"
   window.addEventListener(terminationEvent, handler)
 }
 
@@ -221,7 +221,7 @@ export class App {
    * @param event {TrackEventPayload} The event to track.
    */
   track(event: TrackEventPayload) {
-    if (this.options.disabled || !isInBrowser()) {
+    if (this.options.disabled || !isVisitorValid()) {
       return Promise.resolve()
     }
     if (event.unique) {
@@ -253,7 +253,7 @@ export class App {
    * @returns An object of the form `{ stop(): void }` to stop the tracking
    */
   trackPages(options?: TrackPagesOptions): TrackPagesResult {
-    if (!isInBrowser()) {
+    if (!isVisitorValid()) {
       return { stop() {} }
     }
     if (this.trackPageData) {
